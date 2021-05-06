@@ -8,7 +8,11 @@
   const infoElement = document.getElementById('color-info');
   const infoHexElement = document.getElementById('color-info-hex');
   const contentElement = document.querySelector('.content');
-  
+  const fragment = document.getElementById('fragment');
+  const fragmentContext = fragment.getContext('2d');
+  const fragment2 = document.getElementById('fragment2');
+  const fragment2Context = fragment2.getContext('2d');
+
   let imageObject;
 
   fileInput.addEventListener('change', () => {
@@ -47,7 +51,7 @@
   (function render() {
     if (imageObject) {
       let aspectRatio = imageObject.width / imageObject.height;
-      let maxWidth = contentElement.clientWidth - 100;
+      let maxWidth = contentElement.clientWidth - 150;
       let maxHeight = maxWidth / aspectRatio;
       let width = imageObject.width > maxWidth ? maxWidth : imageObject.width;
       let height = imageObject.height > maxHeight ? maxHeight : imageObject.height;
@@ -69,6 +73,32 @@
     getSelection().addRange(range);
     document.execCommand('copy');
     getSelection().removeAllRanges();
+  });
+
+  fragment.width = 6;
+  fragment.height = 6;
+  fragment2.width = 50;
+  fragment2.height = 50;
+  fragment2Context.strokeStyle = '#fff';
+  
+  fragment2Context.beginPath();
+  fragment2Context.moveTo(0, fragment2.height/2);
+  fragment2Context.lineTo(fragment2.width, fragment2.height/2);
+  fragment2Context.stroke();
+  fragment2Context.moveTo(fragment2.width/2, 0);
+  fragment2Context.lineTo(fragment2.width/2, fragment2.height);
+  fragment2Context.stroke();
+
+  canvas.addEventListener('mousemove', (e) => {
+    const bounds = canvas.getBoundingClientRect();
+    const data = context.getImageData(
+      e.clientX - bounds.left - 3,
+      e.clientY - bounds.top - 3,
+      6,
+      6,
+    );
+    fragmentContext.clearRect(0, 0, fragment.width, fragment.height);
+    fragmentContext.putImageData(data, 0, 0);
   });
 
 })();
