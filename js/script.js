@@ -56,13 +56,8 @@
     requestAnimationFrame(render);
   })();
 
-  const poster = new Image();
-  poster.src = 'favicon.ico';
-  poster.addEventListener('load', () => {
-    canvas.width = 480;
-    canvas.height = 480;
-    context.drawImage(poster, (canvas.width - poster.width) / 2, (canvas.height - poster.height) / 2);
-  });
+  canvas.width = 1;
+  canvas.height = 1;
 
   copyButton.addEventListener('click', () => {
     const range = document.createRange();
