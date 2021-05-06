@@ -69,7 +69,6 @@
     getSelection().addRange(range);
     document.execCommand('copy');
     getSelection().removeAllRanges();
-    alert(`Copied!`);
   });
 
 })();
