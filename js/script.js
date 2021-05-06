@@ -77,17 +77,13 @@
 
   fragment.width = 6;
   fragment.height = 6;
+
   fragment2.width = 50;
   fragment2.height = 50;
-  fragment2Context.strokeStyle = '#fff';
-  
+  fragment2Context.fillStyle = '#fff';
   fragment2Context.beginPath();
-  fragment2Context.moveTo(0, fragment2.height/2);
-  fragment2Context.lineTo(fragment2.width, fragment2.height/2);
-  fragment2Context.stroke();
-  fragment2Context.moveTo(fragment2.width/2, 0);
-  fragment2Context.lineTo(fragment2.width/2, fragment2.height);
-  fragment2Context.stroke();
+  fragment2Context.arc(fragment2.width/2, fragment2.height/2, 1.5, 0, 2*Math.PI);
+  fragment2Context.fill();
 
   canvas.addEventListener('mousemove', (e) => {
     const bounds = canvas.getBoundingClientRect();
