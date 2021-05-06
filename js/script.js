@@ -6,6 +6,7 @@
   const copyButton = document.getElementById('copy-btn');
   const colorElement = document.getElementById('color-div');
   const infoElement = document.getElementById('color-info');
+  const infoHexElement = document.getElementById('color-info-hex');
   const contentElement = document.querySelector('.content');
   
   let imageObject;
@@ -14,6 +15,7 @@
     imageObject = null;
     colorElement.style.backgroundColor = 'rgb(31, 34, 39)';
     infoElement.textContent = '';
+    infoHexElement.textContent = '';
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     const blob = fileInput.files[0];
@@ -38,6 +40,7 @@
       const color = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${(data[3]/255).toPrecision(2)})`;
       colorElement.style.backgroundColor = color;
       infoElement.innerHTML = color;
+      infoHexElement.innerHTML = `#${data[0].toString(16)}${data[1].toString(16)}${data[2].toString(16)} (${Math.round(data[3]*100/255)}%)`;
     }
   });
 
