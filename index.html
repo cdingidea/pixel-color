@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelColor</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+  
+  <div class="app">
+    <div class="sidebar">
+      <div class="commands">
+        <label class="command">
+          <input type="file" accept="image/*" id="image">  
+          <img src="images/open.svg" alt="">
+        </label>
+        <div class="command" id="copy-btn"><img src="images/copy.svg" alt=""></div>
+      </div>
+      <div class="color" id="color-div"></div>
+      <div class="info" id="color-info"></div>
+    </div>
+    <div class="content">
+      <canvas></canvas>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  
+</body>
+</html>
