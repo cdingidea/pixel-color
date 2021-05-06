@@ -71,6 +71,7 @@
     getSelection().addRange(range);
     document.execCommand('copy');
     getSelection().removeAllRanges();
+    alert(`Panoya kopyalandı!`);
   });
 
 })();
