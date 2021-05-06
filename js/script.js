@@ -12,7 +12,7 @@
 
   fileInput.addEventListener('change', () => {
     imageObject = null;
-    colorElement.style.backgroundColor = 'white';
+    colorElement.style.backgroundColor = 'rgb(31, 34, 39)';
     infoElement.textContent = '';
     context.clearRect(0, 0, canvas.width, canvas.height);
 
