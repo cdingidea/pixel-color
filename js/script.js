@@ -13,7 +13,12 @@
   const fragment2 = document.getElementById('fragment2');
   const fragment2Context = fragment2.getContext('2d');
 
+
+
   let imageObject;
+  context.imageSmoothingEnabled = true;
+  fragmentContext.imageSmoothingEnabled = true;
+  fragment2Context.imageSmoothingEnabled = true;
 
   fileInput.addEventListener('change', () => {
     imageObject = null;
@@ -93,10 +98,10 @@
   canvas.addEventListener('mousemove', (e) => {
     const bounds = canvas.getBoundingClientRect();
     const data = context.getImageData(
-      e.clientX - bounds.left - 3,
-      e.clientY - bounds.top - 3,
-      6,
-      6,
+      e.clientX - bounds.left - 6,
+      e.clientY - bounds.top - 6,
+      12,
+      12,
     );
     fragmentContext.clearRect(0, 0, fragment.width, fragment.height);
     fragmentContext.putImageData(data, 0, 0);
