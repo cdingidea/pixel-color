@@ -32,6 +32,11 @@
     reader.readAsDataURL(blob);
   });
 
+  function hexComponent(value) {
+    value = value.toString(16);
+    return value.length < 2 ? ('0' + value) : value;
+  }
+
   canvas.addEventListener('mouseup', (e) => {
     if (imageObject) {
       const bounds = canvas.getBoundingClientRect();
@@ -44,7 +49,7 @@
       const color = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${(data[3]/255).toPrecision(2)})`;
       colorElement.style.backgroundColor = color;
       infoElement.innerHTML = color;
-      infoHexElement.innerHTML = `#${data[0].toString(16)}${data[1].toString(16)}${data[2].toString(16)} (${Math.round(data[3]*100/255)}%)`;
+      infoHexElement.innerHTML = `#${hexComponent(data[0])}${hexComponent(data[1])}${hexComponent(data[2])} (${Math.round(data[3]*100/255)}%)`;
     }
   });
 
